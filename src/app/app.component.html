@@ -5,9 +5,7 @@
 <input type="text" [(ngModel)]="title" />
 <button (click)="addTitle()">Add Titles</button>
 <ul>
-  <li *ngFor="let myTitle of myTitles">{{myTitle}}
-    <div style="border: solid navy 2px">
-     <title-children>[myTitle] = "myTitle"</title-children>
-    </div>
+  <li *ngFor="let myTitle of myTitles">
+    <title-children [myTitle]="myTitle"></title-children>
   </li>
 </ul>
