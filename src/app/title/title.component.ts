@@ -10,4 +10,7 @@ export class TitleComponent implements OnInit {
 
 	@Input() myTitle:string;
 
-	public isVisible:
+	public isVisible:boolean =false;
+	
+	ngOnInit() { }
+}
