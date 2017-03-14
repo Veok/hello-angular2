@@ -9,6 +9,7 @@ import {
 })
 export class AppComponent implements OnInit {
 
+  public isLoading: boolean= true;
 
   public myTitles: Array < string > = [];
 
@@ -20,6 +21,10 @@ export class AppComponent implements OnInit {
     this._title = v;
   }
 
+  public onLoading(loading: boolean): void {
+    this.isLoading = loading;
+    alert(loading);
+  }
   public addTitle(): void {
     this.myTitles.push(this._title);
     this._title = '';

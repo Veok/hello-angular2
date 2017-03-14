@@ -1,0 +1,9 @@
+<div>
+    <input type="text" (keyup)="filterTitles($event)">
+    <p>{{valueFromEvent}}</p>
+<ul>
+  <li *ngFor="let myTitle of myTitles" >
+    <title-children [myTitle]="myTitle.title" *ngIf="myTitle.isVisible"></title-children>
+  </li>
+</ul>
+</div>

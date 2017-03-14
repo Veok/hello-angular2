@@ -2,10 +2,7 @@
   {{title}}
 </h1>
 
-<input type="text" [(ngModel)]="title" />
+<input type="text" [(ngModel)]="title" (keyup.enter)="addTitles()" />
 <button (click)="addTitle()">Add Titles</button>
-<ul>
-  <li *ngFor="let myTitle of myTitles">
-    <title-children [myTitle]="myTitle"></title-children>
-  </li>
-</ul>
+<div *ngIf="isLoading">Loading....</div>
+<title-list [myTitles]="myTitles" (startLoading)="OnLoading($event)"></title-list>
