@@ -3,27 +3,22 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {AppComponent} from './app.component';
-import {TitleModule} from './title/title.module';
-import { ComponentComponent } from './component/component.component';
-import { HomeComponent } from "./home/home.component";
+import { AppComponent } from './app.component';
 import { LoginComponent } from "./login/login.component";
-import {RouterModule, Routes} from "@angular/router";
 
-const routes:Routes = [
-  {path:"app", component:AppComponent},
-  {path:"login", component:LoginComponent},
-  {path:"", redirectTo:"app", pathMatch:'full'}
-]; 
+import { RouterModule, Routes } from '@angular/router';
+import { TitleModule } from "./title-module/title.module";
+
+const routes: Routes = [
+  { path: "titles", component: AppComponent },
+  { path: "login", component: LoginComponent },
+  { path: "", redirectTo: "/app", pathMatch:'full' }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentComponent,
-    LoginComponent,
-    HomeComponent
-    
-    
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +27,7 @@ const routes:Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [HomeComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

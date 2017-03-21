@@ -1,22 +1,22 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { AddTitleComponent } from './add-title.component';
 
-describe('a home component', () => {
-	let component: HomeComponent;
+describe('a add-title component', () => {
+	let component: AddTitleComponent;
 
 	// register all needed dependencies
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [
-				HomeComponent
+				AddTitleComponent
 			]
 		});
 	});
 
 	// instantiation through framework injection
-	beforeEach(inject([HomeComponent], (HomeComponent) => {
-		component = HomeComponent;
+	beforeEach(inject([AddTitleComponent], (AddTitleComponent) => {
+		component = AddTitleComponent;
 	}));
 
 	it('should have an instance', () => {
