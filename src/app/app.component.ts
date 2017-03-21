@@ -1,40 +1,44 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TitleModel } from "./title-list/title-list.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit{
+  
+  public isLoading:boolean = true;
+  public titles:Array<TitleModel> = [];
+  
+  private _title : string;
 
-  public isLoading: boolean= true;
+  public OnLoading(loading:boolean):void{
+    this.isLoading=loading;
+    //alert(loading);
+  }
 
-  public myTitles: Array < string > = [];
-
-  private _title: string;
-  public get title(): string {
+  public get title() : string {
     return this._title;
   }
-  public set title(v: string) {
+
+  public set title(v : string) {
     this._title = v;
   }
-
-  public onLoading(loading: boolean): void {
-    this.isLoading = loading;
-    alert(loading);
-  }
-  public addTitle(): void {
-    this.myTitles.push(this._title);
-    this._title = '';
-  }
-  public constructor() {
-    this._title = "Gitara Siema!";
+  
+  public addTitle():void{
+    this.titles.push(new TitleModel(this._title,true));
+    this._title='';
   }
 
-  public ngOnInit(): void {}
+  public constructor(){
+
+    this.title = "Hello";
+  }
+
+  public ngOnInit():void{
+      
 
 
+  }
 
 }

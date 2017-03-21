@@ -1,16 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+
+
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-	selector: 'title-children',
+	selector: 'title-child',
 	templateUrl: 'title.component.html',
-	styleUrls:['title.component.css']
+	styleUrls: ['title.component.css']
 })
-
 export class TitleComponent implements OnInit {
+		
+	ngOnInit(): void {
+	}
 
-	@Input() myTitle:string;
 
-	public isVisible:boolean = false;
-	
-	ngOnInit() { }
+	@Input() public myTitle: string;
+
+	private tst: number;
+
+	public isVisible: boolean = false;
+
+
 }
