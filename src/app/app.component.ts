@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TitleModel } from "./title-list/title-list.component";
 
 @Component({
-  selector: 'app-root',
+  selector: 'title-cmp',
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit{
