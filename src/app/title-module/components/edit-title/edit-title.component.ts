@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import 'rxjs/add/operator/switchMap';
+import { TitleService } from "../../services/title-service";
+import { TitleModel } from "../../models/title-model";
 
 @Component({
 	selector: 'edit-title',
@@ -11,17 +13,20 @@ export class EditTitleComponent implements OnInit {
 
 	public title:string = "";
 
-	constructor(private router:Router, private route:ActivatedRoute){
+	constructor(private router:Router,
+	 private route:ActivatedRoute,
+	 private titlesService: TitleService){
 		router.config
 	}
 
 	ngOnInit() { 
 
 	this.route.params
-	.switchMap((params:Params)=>params['title'])
+	.switchMap((params:Params)=>
+	 this.titlesService.getTitle(params['title']))
 	.subscribe(
-		(t:string)=>
-			this.title+=t
+		(t:TitleModel)=>
+			this.title = t.title
 		);
 	}
 }

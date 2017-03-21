@@ -8,6 +8,7 @@ import { TitleListComponent } from "./components/title-list/title-list.component
 import { AddTitleComponent } from "./components/add-title/add-title.component";
 import { Routes, RouterModule } from "@angular/router";
 import { EditTitleComponent } from "./edit-title/edit-title.component";
+import { TitleService } from "./services/title-service";
 
 const routes:Routes = [
     {path:'titles/title/:title', component:EditTitleComponent}
@@ -21,7 +22,7 @@ const routes:Routes = [
         ],
     exports: [TitleComponent, TitleListComponent, AddTitleComponent, EditTitleComponent],
     declarations: [TitleComponent, TitleListComponent, AddTitleComponent],
-    providers: [],
+    providers: [TitleService],
     schemas: []
 })
 export class TitleModule { }

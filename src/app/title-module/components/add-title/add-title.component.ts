@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleModel } from "../title-list/title-list.component";
+import { TitleService } from "../../services/title-service";
 
 @Component({
 	selector: 'add-title',
@@ -26,11 +27,13 @@ export class AddTitleComponent implements OnInit {
   }
   
   public addTitle():void{
+    let model = new TitleModel(this._title,true);
+    this.titleService.addTitle(model);
     this.titles.push(new TitleModel(this._title,true));
     this._title='';
   }
 
-  public constructor(){
+  public constructor(private titleService:TitleService){
 
     this.title = "Hello";
   }
